@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         mangsinhvien.add(new Sinhvien("Nguyen Van E"));
 
         adapter = new Adapter(mangsinhvien);
-        recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
         recyclerView.setAdapter(adapter);
+
     }
 }
