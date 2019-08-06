@@ -30,7 +30,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder>{
     //3 : Gan du lieu tu viewholder
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
-
+        holder.txtTen.setText(mangsinhvien.get(position).getTen());
     }
 
     @Override
