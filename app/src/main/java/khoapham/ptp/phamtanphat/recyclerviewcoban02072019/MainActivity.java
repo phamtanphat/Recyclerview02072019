@@ -1,15 +1,19 @@
 package khoapham.ptp.phamtanphat.recyclerviewcoban02072019;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements onListenAdapter{
 
     RecyclerView recyclerView;
     ArrayList<Sinhvien> mangsinhvien = new ArrayList<>();
@@ -27,8 +31,21 @@ public class MainActivity extends AppCompatActivity {
         mangsinhvien.add(new Sinhvien("Nguyen Van D"));
         mangsinhvien.add(new Sinhvien("Nguyen Van E"));
 
-        adapter = new Adapter(mangsinhvien);
+        adapter = new Adapter(mangsinhvien , this);
+
         recyclerView.setAdapter(adapter);
 
+
+
+    }
+
+    @Override
+    public void onClick(View v, int poisition) {
+
+    }
+
+    @Override
+    public boolean onLongClick(View v, int poisition) {
+        return false;
     }
 }
