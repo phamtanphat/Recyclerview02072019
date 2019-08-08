@@ -13,7 +13,7 @@ import android.widget.ImageView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements onListenAdapter{
+public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     ArrayList<Sinhvien> mangsinhvien = new ArrayList<>();
@@ -31,21 +31,21 @@ public class MainActivity extends AppCompatActivity implements onListenAdapter{
         mangsinhvien.add(new Sinhvien("Nguyen Van D"));
         mangsinhvien.add(new Sinhvien("Nguyen Van E"));
 
-        adapter = new Adapter(mangsinhvien , this);
+        adapter = new Adapter(mangsinhvien, new onListenAdapter() {
+            @Override
+            public void onClick(View v, int poisition) {
+                mangsinhvien.remove(poisition);
+                adapter.notifyDataSetChanged();
+                Log.d("BBB",mangsinhvien.size() + "");
+            }
+
+            @Override
+            public boolean onLongClick(View v, int poisition) {
+                return false;
+            }
+        });
 
         recyclerView.setAdapter(adapter);
 
-
-
-    }
-
-    @Override
-    public void onClick(View v, int poisition) {
-
-    }
-
-    @Override
-    public boolean onLongClick(View v, int poisition) {
-        return false;
     }
 }

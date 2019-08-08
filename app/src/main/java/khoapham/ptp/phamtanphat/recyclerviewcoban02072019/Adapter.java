@@ -22,7 +22,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder>{
         this.mangsinhvien = mangsinhvien;
         this.onListenAdapter = onListenAdapter;
     }
-
     //1 : Tao ra viewholder
     @NonNull
     @Override
@@ -32,14 +31,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder>{
 
         return new Holder(view);
     }
-
     //3 : Gan du lieu tu viewholder
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
         holder.txtTen.setText(mangsinhvien.get(position).getTen());
 
     }
-
     @Override
     public int getItemCount() {
         if (mangsinhvien.size() <= 0 || mangsinhvien == null ){
@@ -47,8 +44,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder>{
         }
         return mangsinhvien.size();
     }
-
-
     //2 : anh xa view trong lop viewholder
     //Class quản lý những view sẽ tương tác lại
     class Holder extends RecyclerView.ViewHolder{
